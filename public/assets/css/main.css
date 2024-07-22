@@ -1,0 +1,21 @@
+@font-face {
+    font-family: font;
+    src: url("../fonts/IRANSans\(FaNum\).ttf");
+}
+@font-face {
+    font-family: bold;
+    src: url("../fonts/IRANSans\(FaNum\)_Bold.ttf");
+}
+*{
+    font-family: font;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}  
+.aside_nav_li_active{
+    background-color: #f99317cc;
+    border-radius: 6px;
+    padding: 10px 30px 10px 0px;
+}
