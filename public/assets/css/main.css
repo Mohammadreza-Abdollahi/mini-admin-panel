@@ -19,3 +19,7 @@
     border-radius: 6px;
     padding: 10px 30px 10px 0px;
 }
+a{
+    color: var(--color-4);
+    text-decoration: none;
+}

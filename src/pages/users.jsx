@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import style from '../style.module.css';
 const Users = () => {
     return ( 
@@ -9,7 +10,7 @@ const Users = () => {
                         <input className={`${style.search_inp}`} type="text" placeholder='جستجو...'/>
                     </div>
                     <div>
-                        <button className={`${style.add_btn}`}>افزودن</button>
+                        <button className={`${style.add_btn}`}><Link to="./user/add">افزودن</Link></button>
                     </div>
                 </div>
                 <div>

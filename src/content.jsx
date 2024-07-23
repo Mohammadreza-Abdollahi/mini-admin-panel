@@ -5,6 +5,7 @@ import Users from './pages/users';
 import Post from './pages/posts';
 import Galery from './pages/galery';
 import Works from './pages/works';
+import AddUser from './components/AddUser';
 import { Route, Routes } from 'react-router-dom';
 const Content = () => {
     const {showMenu,setShowMenu} = useContext(MainContext);
@@ -22,6 +23,7 @@ const Content = () => {
                 <div>
                     <Routes>
                         <Route path='/' element={<Users/>}/>
+                        <Route path='/user/add' element={<AddUser/>}/>
                         <Route path='/posts' element={<Post/>}/>
                         <Route path='/galery' element={<Galery/>}/>
                         <Route path='/works' element={<Works/>}/>
