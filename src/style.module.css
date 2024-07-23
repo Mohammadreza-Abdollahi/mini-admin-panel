@@ -29,6 +29,8 @@ a{
     --color-8 : #f993176b;
     --color-9 : #a3a3a3;
     --color-10 : #dd3446;
+    --color-11 : #2563eb;
+    --color-12 : #bfdbfe;
 }
 /* Utiities */
 .component_size{
@@ -180,6 +182,14 @@ a{
     margin: 0px 8px;
     padding: 5px;
     cursor: pointer;
+}
+.user_err{
+    font-size: 20px;
+    padding: 8px;
+    border-radius: 4px;
+    display: block;
+    color: var(--color-11);
+    background-color: var(--color-12);
 }
 /* AddUser */
 .add_user_cont{
