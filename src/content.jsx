@@ -23,7 +23,9 @@ const Content = () => {
                 <div>
                     <Routes>
                         <Route path='/' element={<Users/>}/>
-                        <Route path='/user/add' element={<AddUser/>}/>
+                        <Route path='/user/add' element={<AddUser/>}>
+                            <Route path=':userId'/>
+                        </Route>
                         <Route path='/posts' element={<Post/>}/>
                         <Route path='/galery' element={<Galery/>}/>
                         <Route path='/works' element={<Works/>}/>

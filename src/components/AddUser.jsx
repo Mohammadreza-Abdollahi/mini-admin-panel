@@ -1,8 +1,11 @@
+import { useParams } from 'react-router-dom';
 import style from '../style.module.css'
 const AddUser = () => {
+    const {userId} = useParams();
     return ( 
         <>
             <section className={`${style.add_user_cont}`}>
+                <h2 className={`${style.heading_title}`}>{userId ? "ویرایش کاربر" : "افزودن کاربر"}</h2>
                 <div className={`${style.add_user_form_sec}`}>
                     <label htmlFor="name">نام و نام خانوادگی</label>
                     <input type="text" name="name" id="name" placeholder='نام و نام خانوادگی'/>
@@ -18,11 +21,11 @@ const AddUser = () => {
                 <div className={`${style.add_user_form_sec}`}>
                     <label htmlFor="address">ادرس</label>
                     <div className={`${style.add_user_form_row}`}>
-                        <input type="text" name='address' id='address' placeholder='شهر...'/>
+                        <input type="text" name='address' id='address' placeholder='شهر'/>
                         <input type="text" name='address' id='address' placeholder='خیابان'/>
                     </div>
                     <div className={`${style.add_user_form_row}`}>
-                        <input type="text" name='address' id='address' placeholder='ادامه ادرس...'/>
+                        <input type="text" name='address' id='address' placeholder='ادامه ادرس'/>
                         <input type="number" name='address' id='address' placeholder='کد پستی'/>
                     </div>
                 </div>

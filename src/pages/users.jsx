@@ -30,14 +30,7 @@ const Users = () => {
                                 <td>Mohammad</td>
                                 <td>mohammad1384</td>
                                 <td colSpan={3}>mohammad1384abdollahi@gmail.com</td>
-                                <td colSpan={2}><button className={`${style.trash}`}><i class="fa-solid fa-trash"></i></button><button className={`${style.rename}`}><i class="fa-solid fa-pen-to-square"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Mohammad</td>
-                                <td>mohammad1384</td>
-                                <td colSpan={3}>mohammad1384abdollahi@gmail.com</td>
-                                <td colSpan={2}><button className={`${style.trash}`}><i class="fa-solid fa-trash"></i></button><button className={`${style.rename}`}><i class="fa-solid fa-pen-to-square"></i></button></td>
+                                <td colSpan={2}><button className={`${style.trash}`}><i class="fa-solid fa-trash"></i></button><Link to='./user/add/2'><button className={`${style.rename}`}><i class="fa-solid fa-pen-to-square"></i></button></Link></td>
                             </tr>
                         </tbody>
                     </table>

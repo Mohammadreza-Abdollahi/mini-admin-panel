@@ -210,7 +210,7 @@ a{
 }
 .add_user_cont .add_user_form_sec .add_user_form_row{
     width: 100%;
-    margin: auto;
+    margin: 0px auto 10px auto;
     display: flex;
     justify-content: space-between;
     gap: 16px;
