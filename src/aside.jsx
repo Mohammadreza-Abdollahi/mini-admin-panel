@@ -2,7 +2,8 @@ import style from './style.module.css';
 import profile from "./profile.png"
 import { useContext } from 'react';
 import { MainContext } from './context/mainContext';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import './css/nav.css'
 const Aside = () => {
     const {showMenu} = useContext(MainContext);
     return ( 
@@ -14,20 +15,12 @@ const Aside = () => {
                         <span>محمدرضا عبداللهی</span>
                     </div>
                     <div className={`${style.aside_nav_cont}`}>
-                        <ul className={`${style.aside_nav_ul}`}>
-                            <li className={`${style.aside_nav_li} ${style.aside_nav_li_active}`}>
-                                <Link className={`${style.aside_nav_a}`} to="/">کاربران</Link>
-                            </li>
-                            <li className={`${style.aside_nav_li}`}>
-                                <Link className={`${style.aside_nav_a}`} to="posts">پست ها</Link>
-                            </li>
-                            <li className={`${style.aside_nav_li}`}>
-                                <Link className={`${style.aside_nav_a}`} to="galery">گالری</Link>
-                            </li>
-                            <li className={`${style.aside_nav_li}`}>
-                                <Link className={`${style.aside_nav_a}`} to="works">کارها</Link>
-                            </li>
-                        </ul>
+                        <nav className={`${style.aside_nav_ul}`}>
+                                <NavLink className={({isActive})=>{return isActive ? "aside-nav-item-active" : "aside-nav-item"}} to={"/user"}>کاربران</NavLink>
+                                <NavLink className={({isActive})=>{return isActive ? "aside-nav-item-active" : "aside-nav-item"}} to={"/posts"}>پست ها</NavLink>
+                                <NavLink className={({isActive})=>{return isActive ? "aside-nav-item-active" : "aside-nav-item"}} to={"/galery"}>گالری</NavLink>
+                                <NavLink className={({isActive})=>{return isActive ? "aside-nav-item-active" : "aside-nav-item"}} to={"/works"}>کارها</NavLink>
+                        </nav>
                     </div>
                 </div>
             </section>

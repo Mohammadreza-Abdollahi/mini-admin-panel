@@ -1,0 +1,25 @@
+.aside-nav-item{
+    padding: 10px 30px 10px 0px;
+    margin: 10px 0px;
+    transition: all .3s;
+    display: block;
+    color: #F5F5F5;
+    background-color: transparent;
+    font-size: 25px;
+    border-radius: 6px;
+}
+.aside-nav-item:hover{
+    background-color: #f9931741;
+    border-radius: 6px;
+    transition: all .3s;
+}
+.aside-nav-item-active{
+    padding: 10px 30px 10px 0px;
+    margin: 10px 0px;
+    transition: all .3s;
+    display: block;
+    color: #F5F5F5;
+    background-color: #f99317cc;
+    font-size: 25px;
+    border-radius: 6px;
+}

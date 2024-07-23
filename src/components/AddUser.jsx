@@ -1,6 +1,7 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import style from '../style.module.css'
 const AddUser = () => {
+    const navigate = useNavigate();
     const {userId} = useParams();
     return ( 
         <>
@@ -31,7 +32,7 @@ const AddUser = () => {
                 </div>
                 <div className={`${style.add_user_form_btns}`}>
                     <button className={`${style.btn_1}`}>ذخیره</button>
-                    <button className={`${style.btn_2}`}>بازگشت</button>
+                    <button onClick={()=>navigate("/user")} className={`${style.btn_2}`}>بازگشت</button>
                 </div>
             </section>
         </>

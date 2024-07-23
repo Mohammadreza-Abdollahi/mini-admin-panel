@@ -77,23 +77,30 @@ a{
 .aside_nav_cont{
     margin: 30px 0px;
 }
-.aside_nav_ul{
-    list-style: none;
-}
-.aside_nav_li{
+.aside_nav_item{
     padding: 10px 30px 10px 0px;
     margin: 10px 0px;
     transition: all .3s;
+    display: block;
+    color: var(--color-4);
+    background-color: transparent;
+    font-size: 25px;
+    border-radius: 6px;
 }
-.aside_nav_li:hover{
+.aside_nav_item:hover{
     background-color: #f9931741;
     border-radius: 6px;
     transition: all .3s;
 }
-.aside_nav_li_active{
-    background-color: #f99317cc;
-    border-radius: 6px;
+.aside_nav_item_active{
     padding: 10px 30px 10px 0px;
+    margin: 10px 0px;
+    transition: all .3s;
+    display: block;
+    color: #F5F5F5;
+    background-color: #f99317cc;
+    font-size: 25px;
+    border-radius: 6px;
 }
 .aside_nav_a{
     display: block;

@@ -10,7 +10,7 @@ const Users = () => {
                         <input className={`${style.search_inp}`} type="text" placeholder='جستجو...'/>
                     </div>
                     <div>
-                        <button className={`${style.add_btn}`}><Link to="./user/add">افزودن</Link></button>
+                        <button className={`${style.add_btn}`}><Link to="/user/add">افزودن</Link></button>
                     </div>
                 </div>
                 <div>
@@ -30,7 +30,7 @@ const Users = () => {
                                 <td>Mohammad</td>
                                 <td>mohammad1384</td>
                                 <td colSpan={3}>mohammad1384abdollahi@gmail.com</td>
-                                <td colSpan={2}><button className={`${style.trash}`}><i class="fa-solid fa-trash"></i></button><Link to='./user/add/2'><button className={`${style.rename}`}><i class="fa-solid fa-pen-to-square"></i></button></Link></td>
+                                <td colSpan={2}><button className={`${style.trash}`}><i class="fa-solid fa-trash"></i></button><Link to='/user/add/2'><button className={`${style.rename}`}><i class="fa-solid fa-pen-to-square"></i></button></Link></td>
                             </tr>
                         </tbody>
                     </table>
