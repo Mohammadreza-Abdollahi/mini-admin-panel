@@ -18,7 +18,7 @@ const Content = () => {
         <>
             <section onClick={()=>setShowMenu(false)} className={`${style.content_sec}`}>
                 <div>
-                    <span><i onClick={handleShowMenu} class={`${style.ham_logo} fa-solid fa-bars`}></i></span>
+                    <span><i onClick={handleShowMenu} className={`${style.ham_logo} fa-solid fa-bars`}></i></span>
                 </div>
                 <div>
                     <Routes>

@@ -24,11 +24,24 @@ const Users = () => {
             cancelButtonText: "بازگشت",
           }).then((result) => {
             if (result.isConfirmed) {
-              Swal.fire({
-                title: "موفق",
-                text: "کاربر مورد نظر با موفقیت حذف شد!",
-                icon: "success"
-              });
+                axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`).then(res=>{
+                    console.log(res);
+                    if(res.status === 200){
+                        const newUser = users.filter(u=> u.id !== id);
+                        setUsers(newUser);
+                        Swal.fire({
+                            title: "موفق",
+                            text: "کاربر مورد نظر با موفقیت حذف شد!",
+                            icon: "success"
+                        });
+                    }else{
+                        Swal.fire({
+                            title: "خطا",
+                            text: "حذف کاربر با خطا مواجه شد!",
+                            icon: "error"
+                        });
+                    }
+                })
             }
           });
     }
@@ -59,12 +72,12 @@ const Users = () => {
                     <tbody>
                         {users.map(item=>{
                             return(
-                            <tr>
+                            <tr key={item.id}>
                                 <td>{item.id}</td>
                                 <td>{item.name}</td>
                                 <td>{item.username}</td>
                                 <td colSpan={3}>{item.email}</td>
-                                <td colSpan={2}><button onClick={(id)=>handleDelete(id)} className={`${style.trash}`}><i class="fa-solid fa-trash"></i></button><Link to='/user/add/2'><button className={`${style.rename}`}><i class="fa-solid fa-pen-to-square"></i></button></Link></td>
+                                <td colSpan={2}><button onClick={()=>handleDelete(item.id)} className={`${style.trash}`}><i class="fa-solid fa-trash"></i></button><Link to='/user/add/2'><button className={`${style.rename}`}><i class="fa-solid fa-pen-to-square"></i></button></Link></td>
                             </tr>
                             )
                         })}
