@@ -1,7 +1,8 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import style from '../style.module.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 const AddUser = () => {
     const navigate = useNavigate();
     const {userId} = useParams();
@@ -18,22 +19,54 @@ const AddUser = () => {
     })
     const handleSubmit = (e)=>{
         e.preventDefault();
-        axios.post('https://jsonplaceholder.typicode.com/users' , userData).then(res=>{
-            console.log(res);
-            if(res.status === 201){
-                setUserData({
-                    name: "",
-                    username: "",
-                    email: "",
-                    address :{
-                        street: "",
-                        city: "",
-                        suite: "",
-                        zipcode: "",
-                    }});
-            }
-        })
+        if(!userId){
+            axios.post('https://jsonplaceholder.typicode.com/users' , userData).then(res=>{
+                console.log(res);
+                if(res.status === 201){
+                    Swal.fire({
+                        title: "موفق",
+                        text: `کاربر ${userData.name} با موفقیت ایجاد شد`,
+                        icon: "success"
+                    });
+                    setUserData({
+                        name: "",
+                        username: "",
+                        email: "",
+                        address :{
+                            street: "",
+                            city: "",
+                            suite: "",
+                            zipcode: "",
+                        }});
+                }
+            })
+        }else{
+            axios.put(`https://jsonplaceholder.typicode.com/users/${userId}` , userData).then(res=>{
+                if(res.status === 200){
+                    Swal.fire({
+                        title: "موفق",
+                        text: `کاربر ${userData.name} با موفقیت ویرایش شد`,
+                        icon: "success"
+                    });
+                }
+            })
+        }
     }
+    useEffect(()=>{
+        axios.get(`https://jsonplaceholder.typicode.com/users/${userId}`).then(res=>{
+            console.log(res);
+            setUserData({
+                name: res.data.name,
+                username: res.data.username,
+                email: res.data.email,
+                address :{
+                    street: res.data.address.street,
+                    city: res.data.address.city,
+                    suite: res.data.address.suite,
+                    zipcode: res.data.address.zipcode,
+                }});
+        })
+    },[])
     return ( 
         <>
             <section className={`${style.add_user_cont}`}>
@@ -63,7 +96,7 @@ const AddUser = () => {
                         </div>
                     </div>
                     <div className={`${style.add_user_form_btns}`}>
-                        <button onClick={(e)=>handleSubmit(e)} type='submit' className={`${style.btn_1}`}>ذخیره</button>
+                        <button onClick={(e)=>handleSubmit(e)} type='submit' className={`${style.btn_1}`}>{userId ? "ویرایش کاربر" : "ایجاد کاربر جدید"}</button>
                         <button onClick={()=>navigate("/user")} className={`${style.btn_2}`}>بازگشت</button>
                     </div>
                 </form>

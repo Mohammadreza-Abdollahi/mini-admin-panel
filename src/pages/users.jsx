@@ -77,7 +77,7 @@ const Users = () => {
                                 <td>{item.name}</td>
                                 <td>{item.username}</td>
                                 <td colSpan={3}>{item.email}</td>
-                                <td colSpan={2}><button onClick={()=>handleDelete(item.id)} className={`${style.trash}`}><i class="fa-solid fa-trash"></i></button><Link to='/user/add/2'><button className={`${style.rename}`}><i class="fa-solid fa-pen-to-square"></i></button></Link></td>
+                                <td colSpan={2}><button onClick={()=>handleDelete(item.id)} className={`${style.trash}`}><i class="fa-solid fa-trash"></i></button><Link to={`/user/add/${item.id}`}><button className={`${style.rename}`}><i class="fa-solid fa-pen-to-square"></i></button></Link></td>
                             </tr>
                             )
                         })}
