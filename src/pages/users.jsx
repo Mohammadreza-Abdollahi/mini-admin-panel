@@ -5,10 +5,12 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 const Users = () => {
     const [users,setUsers] = useState([]);
+    const [mainUsers,setMainUsers] = useState([]);
     useEffect(()=>{
-        axios.get('https://jsonplaceholder.typicode.com/users').then(res=>
+        axios.get('https://jsonplaceholder.typicode.com/users').then(res=>{
             setUsers(res.data)
-        ).catch(err=>
+            setMainUsers(res.data)
+        }).catch(err=>
             console.log(err)
         )
     },[]);
@@ -45,13 +47,17 @@ const Users = () => {
             }
           });
     }
+    const handleSearch = (e)=>{
+        setUsers(mainUsers.filter(item=>item.name.toLowerCase().includes(e.target.value)));
+        console.log(e.target.value);
+    }
     return ( 
         <>
             <section className={`${style.component_size}`}>
                 <h2 className={`${style.heading_title}`}>مدیریت کاربران</h2>
                 <div className={`${style.search_sec}`}>
                     <div>
-                        <input className={`${style.search_inp}`} type="text" placeholder='جستجو...'/>
+                        <input className={`${style.search_inp}`} type="text" placeholder='جستجو...' onChange={(e)=>handleSearch(e)}/>
                     </div>
                     <div>
                         <button className={`${style.add_btn}`}><Link to="/user/add">افزودن</Link></button>
