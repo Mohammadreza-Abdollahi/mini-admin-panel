@@ -1,8 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import style from '../style.module.css'
 import { useEffect, useState } from 'react';
-import axios from 'axios';
-import Swal from 'sweetalert2';
+import { addService, updateService, getByUserIdService } from '../services/UserService';
 const AddUser = () => {
     const navigate = useNavigate();
     const {userId} = useParams();
@@ -20,53 +19,14 @@ const AddUser = () => {
     const handleSubmit = (e)=>{
         e.preventDefault();
         if(!userId){
-            axios.post('https://jsonplaceholder.typicode.com/users' , userData).then(res=>{
-                console.log(res);
-                if(res.status === 201){
-                    Swal.fire({
-                        title: "موفق",
-                        text: `کاربر ${userData.name} با موفقیت ایجاد شد`,
-                        icon: "success"
-                    });
-                    setUserData({
-                        name: "",
-                        username: "",
-                        email: "",
-                        address :{
-                            street: "",
-                            city: "",
-                            suite: "",
-                            zipcode: "",
-                        }});
-                }
-            })
+            addService(userData , setUserData);
         }else{
-            axios.put(`https://jsonplaceholder.typicode.com/users/${userId}` , userData).then(res=>{
-                if(res.status === 200){
-                    Swal.fire({
-                        title: "موفق",
-                        text: `کاربر ${userData.name} با موفقیت ویرایش شد`,
-                        icon: "success"
-                    });
-                }
-            })
+            updateService(userId , userData)
         }
     }
     useEffect(()=>{
-        axios.get(`https://jsonplaceholder.typicode.com/users/${userId}`).then(res=>{
-            console.log(res);
-            setUserData({
-                name: res.data.name,
-                username: res.data.username,
-                email: res.data.email,
-                address :{
-                    street: res.data.address.street,
-                    city: res.data.address.city,
-                    suite: res.data.address.suite,
-                    zipcode: res.data.address.zipcode,
-                }});
-        })
-    },[])
+        getByUserIdService(userId , setUserData)
+    },[userId])
     return ( 
         <>
             <section className={`${style.add_user_cont}`}>

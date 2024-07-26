@@ -1,18 +1,13 @@
 import { Link } from 'react-router-dom';
 import style from '../style.module.css';
 import Swal from 'sweetalert2';
-import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { deleteUser, getUsers } from '../services/UserService';
 const Users = () => {
     const [users,setUsers] = useState([]);
     const [mainUsers,setMainUsers] = useState([]);
     useEffect(()=>{
-        axios.get('https://jsonplaceholder.typicode.com/users').then(res=>{
-            setUsers(res.data)
-            setMainUsers(res.data)
-        }).catch(err=>
-            console.log(err)
-        )
+        getUsers(setUsers , setMainUsers)
     },[]);
     const handleDelete = (id)=>{
         Swal.fire({
@@ -26,30 +21,12 @@ const Users = () => {
             cancelButtonText: "بازگشت",
           }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`).then(res=>{
-                    console.log(res);
-                    if(res.status === 200){
-                        const newUser = users.filter(u=> u.id !== id);
-                        setUsers(newUser);
-                        Swal.fire({
-                            title: "موفق",
-                            text: "کاربر مورد نظر با موفقیت حذف شد!",
-                            icon: "success"
-                        });
-                    }else{
-                        Swal.fire({
-                            title: "خطا",
-                            text: "حذف کاربر با خطا مواجه شد!",
-                            icon: "error"
-                        });
-                    }
-                })
+                deleteUser(id , users , setUsers)
             }
           });
     }
     const handleSearch = (e)=>{
         setUsers(mainUsers.filter(item=>item.name.toLowerCase().includes(e.target.value)));
-        console.log(e.target.value);
     }
     return ( 
         <>
