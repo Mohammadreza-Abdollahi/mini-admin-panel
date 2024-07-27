@@ -1,10 +1,10 @@
 @font-face {
     font-family: font;
-    src: url("../public/assets/fonts/IRANSans\(FaNum\).ttf");
+    src: url("../fonts/IRANSans\(FaNum\).ttf");
 }
 @font-face {
     font-family: bold;
-    src: url("../public/assets/fonts/IRANSans\(FaNum\)_Bold.ttf");
+    src: url("../fonts/IRANSans\(FaNum\)_Bold.ttf");
 }
 *{
     font-family: font;
@@ -51,14 +51,14 @@ a{
 .aside_sec{
     width: 20%;
     height: 100vh;
-    background: linear-gradient(135deg, rgba(54,48,98,0.9472163865546218) 0%, rgba(77,76,125,0.7959558823529411) 100%), url("../public/assets/img/aside-bg.jpg");
+    background: linear-gradient(135deg, rgba(54,48,98,0.9472163865546218) 0%, rgba(77,76,125,0.7959558823529411) 100%), url("../img/aside-bg.jpg");
     background-position: center;
     background-size: cover;
     transition: all 1.2s;
 }
 .content_sec{
     width: 80%;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.753) 0%, rgba(255, 255, 255, 0.753) 100%) , url("../public/assets/img/bg.jpg");
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.753) 0%, rgba(255, 255, 255, 0.753) 100%) , url("../img/bg.jpg");
     background-position: center;
     background-repeat: repeat-y;
     /* background-size: cover; */
@@ -284,13 +284,13 @@ a{
     .aside_sec{
         width: 25%;
         height: 100vh;
-        background: linear-gradient(135deg, rgba(54,48,98,0.9472163865546218) 0%, rgba(77,76,125,0.7959558823529411) 100%), url("../public/assets/img/aside-bg.jpg");
+        background: linear-gradient(135deg, rgba(54,48,98,0.9472163865546218) 0%, rgba(77,76,125,0.7959558823529411) 100%), url("../img/aside-bg.jpg");
         background-position: center;
         background-size: cover;
     }
     .content_sec{
         width: 75%;
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.753) 0%, rgba(255, 255, 255, 0.753) 100%) , url("../public/assets/img/bg.jpg");
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.753) 0%, rgba(255, 255, 255, 0.753) 100%) , url("../img/bg.jpg");
         background-position: center;
         background-repeat: repeat-y;
         /* background-size: cover; */
@@ -304,14 +304,14 @@ a{
         top: 0px;
         width: 350px;
         height: 100vh;
-        background: linear-gradient(135deg, rgba(54,48,98,0.9472163865546218) 0%, rgba(77,76,125,0.7959558823529411) 100%), url("../public/assets/img/aside-bg.jpg");
+        background: linear-gradient(135deg, rgba(54,48,98,0.9472163865546218) 0%, rgba(77,76,125,0.7959558823529411) 100%), url("../img/aside-bg.jpg");
         background-position: center;
         background-size: cover;
         z-index: 999;
     }
     .content_sec{
         width: 100%;
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.753) 0%, rgba(255, 255, 255, 0.753) 100%) , url("../public/assets/img/bg.jpg");
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.753) 0%, rgba(255, 255, 255, 0.753) 100%) , url("../img/bg.jpg");
         background-position: center;
         background-repeat: repeat-y;
         /* background-size: cover; */

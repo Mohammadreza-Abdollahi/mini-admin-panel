@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Aside from "./aside";
 import Content from "./content";
-import style from "./style.module.css";
+import style from "./assets/css/style.module.css";
 import { MainContext } from "./context/mainContext";
 import { BrowserRouter } from "react-router-dom";
 

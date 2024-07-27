@@ -1,9 +1,9 @@
-import style from './style.module.css';
-import profile from "./profile.png"
+import style from './assets/css/style.module.css';
+import profile from "./assets/img/profile.png"
 import { useContext } from 'react';
 import { MainContext } from './context/mainContext';
 import { NavLink } from 'react-router-dom';
-import './css/nav.css'
+import './assets/css/nav.css'
 const Aside = () => {
     const {showMenu} = useContext(MainContext);
     return ( 

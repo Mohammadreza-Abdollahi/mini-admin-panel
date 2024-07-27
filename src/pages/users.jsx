@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import style from '../style.module.css';
+import style from '../assets/css/style.module.css';
 import Swal from 'sweetalert2';
 import { useEffect, useState } from 'react';
 import { deleteUser, getUsers } from '../services/UserService';
@@ -26,7 +26,7 @@ const Users = () => {
           });
     }
     const handleSearch = (e)=>{
-        setUsers(mainUsers.filter(item=>item.name.toLowerCase().includes(e.target.value)));
+        setUsers(mainUsers.filter(item=>item.name.toLowerCase().includes(e.target.value.toLowerCase())));
     }
     return ( 
         <>

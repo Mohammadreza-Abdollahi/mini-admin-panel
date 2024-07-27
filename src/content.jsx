@@ -1,12 +1,12 @@
 import { useContext } from 'react';
-import style from './style.module.css';
+import style from './assets/css/style.module.css';
 import { MainContext } from './context/mainContext';
 import Users from './pages/users';
 import Post from './pages/posts';
 import Galery from './pages/galery';
 import Works from './pages/works';
 import AddUser from './components/AddUser';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 const Content = () => {
     const {showMenu,setShowMenu} = useContext(MainContext);
     const handleShowMenu = (e)=>{
@@ -22,7 +22,7 @@ const Content = () => {
                 </div>
                 <div>
                     <Routes>
-                        <Route path='/' element={<Users/>}/>
+                        <Route path='/' element={<Navigate to='/user'/>}/>
                         <Route path='/user' element={<Users/>}/>
                         <Route path='/user/add' element={<AddUser/>}>
                             <Route path=':userId'/>

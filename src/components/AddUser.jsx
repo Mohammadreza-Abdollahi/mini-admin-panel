@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import style from '../style.module.css'
+import style from '../assets/css/style.module.css'
 import { useEffect, useState } from 'react';
 import { addService, updateService, getByUserIdService } from '../services/UserService';
 const AddUser = () => {
@@ -25,7 +25,9 @@ const AddUser = () => {
         }
     }
     useEffect(()=>{
-        getByUserIdService(userId , setUserData)
+        if(userId){
+            getByUserIdService(userId , setUserData)
+        }
     },[userId])
     return ( 
         <>
