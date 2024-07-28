@@ -1,29 +1,19 @@
 import { Link } from 'react-router-dom';
 import style from '../assets/css/style.module.css';
-import Swal from 'sweetalert2';
 import { useEffect, useState } from 'react';
 import { deleteUser, getUsers } from '../services/UserService';
-const Users = () => {
+import MyAlert from '../hoc/MyAlert';
+const Users = (props) => {
+    const { Alert , Confirm } = props;
     const [users,setUsers] = useState([]);
     const [mainUsers,setMainUsers] = useState([]);
     useEffect(()=>{
         getUsers(setUsers , setMainUsers)
     },[]);
-    const handleDelete = (id)=>{
-        Swal.fire({
-            title: "حذف کاربر!",
-            text: "ایا از حذف این کاربر اطمینان دارید؟",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#F99417",
-            cancelButtonColor: "#dd3446",
-            confirmButtonText: "بله ، حذف شود",
-            cancelButtonText: "بازگشت",
-          }).then((result) => {
-            if (result.isConfirmed) {
-                deleteUser(id , users , setUsers)
-            }
-          });
+    const handleDelete = async (id)=>{
+        if(await Confirm("حذف کاربر!","ایا از حذف این کاربر اطمینان دارید؟","warning","بله ، حذف شود","بازگشت")){
+            deleteUser(id , users , setUsers , Alert);
+        }
     }
     const handleSearch = (e)=>{
         setUsers(mainUsers.filter(item=>item.name.toLowerCase().includes(e.target.value.toLowerCase())));
@@ -77,4 +67,4 @@ const Users = () => {
      );
 }
  
-export default Users;
+export default MyAlert(Users);

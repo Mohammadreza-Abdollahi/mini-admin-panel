@@ -1,15 +1,10 @@
-import Swal from "sweetalert2";
 import { JpAxios } from "../axios/JpAxios";
 
-export const addService = async (userData , setUserData)=>{
+export const addService = async (userData , setUserData , Alert)=>{
     await JpAxios.post(`/users` , userData).then(res=>{
         console.log(res);
         if(res.status === 201){
-            Swal.fire({
-                title: "موفق",
-                text: `کاربر ${userData.name} با موفقیت ایجاد شد`,
-                icon: "success"
-            });
+            Alert("موفق",`کاربر ${userData.name} با موفقیت ایجاد شد`,"success",2);
             setUserData({
                 name: "",
                 username: "",
@@ -23,14 +18,10 @@ export const addService = async (userData , setUserData)=>{
         }
     })
 }
-export const updateService = async (userId , userData)=>{
+export const updateService = async (userId , userData , Alert)=>{
     await JpAxios.put(`/users/${userId}` , userData).then(res=>{
         if(res.status === 200){
-            Swal.fire({
-                title: "موفق",
-                text: `کاربر ${userData.name} با موفقیت ویرایش شد`,
-                icon: "success"
-            });
+            Alert("موفق",`کاربر ${userData.name} با موفقیت ویرایش شد`,"success",2)
         }
     })
 }
@@ -54,23 +45,14 @@ export const getUsers = async (setUsers , setMainUsers)=>{
         setMainUsers(res.data)
     })
 }
-export const deleteUser = (id , users , setUsers)=>{
+export const deleteUser = (id , users , setUsers , Alert)=>{
     JpAxios.delete(`/users/${id}`).then(res=>{
-        console.log(res);
         if(res.status === 200){
             const newUser = users.filter(u=> u.id !== id);
             setUsers(newUser);
-            Swal.fire({
-                title: "موفق",
-                text: "کاربر مورد نظر با موفقیت حذف شد!",
-                icon: "success"
-            });
+            Alert("موفق","کاربر مورد نظر با موفقیت حذف شد!","success",2)
         }else{
-            Swal.fire({
-                title: "خطا",
-                text: "حذف کاربر با خطا مواجه شد!",
-                icon: "error"
-            });
+            Alert("خطا","حذف کاربر با خطا مواجه شد!","error",2)
         }
     })
 }

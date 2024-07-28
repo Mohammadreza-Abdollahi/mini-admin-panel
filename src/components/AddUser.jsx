@@ -2,7 +2,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 import style from '../assets/css/style.module.css'
 import { useEffect, useState } from 'react';
 import { addService, updateService, getByUserIdService } from '../services/UserService';
-const AddUser = () => {
+import MyAlert from '../hoc/MyAlert';
+const AddUser = (props) => {
+    const { Alert } = props;
     const navigate = useNavigate();
     const {userId} = useParams();
     const [userData , setUserData] = useState({
@@ -19,9 +21,9 @@ const AddUser = () => {
     const handleSubmit = (e)=>{
         e.preventDefault();
         if(!userId){
-            addService(userData , setUserData);
+            addService(userData , setUserData , Alert);
         }else{
-            updateService(userId , userData)
+            updateService(userId , userData , Alert)
         }
     }
     useEffect(()=>{
@@ -67,4 +69,4 @@ const AddUser = () => {
      );
 }
  
-export default AddUser;
+export default MyAlert(AddUser);
