@@ -46,7 +46,7 @@ a{
 /* Layout */
 .main_sec{
     display: flex;
-    justify-content: center;
+    justify-content: end;
 }
 .aside_sec{
     width: 20%;
@@ -55,14 +55,17 @@ a{
     background-position: center;
     background-size: cover;
     transition: all 1.2s;
+    position: fixed;
+    right: 0;
 }
 .content_sec{
     width: 80%;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.753) 0%, rgba(255, 255, 255, 0.753) 100%) , url("../img/bg.jpg");
     background-position: center;
     background-repeat: repeat-y;
-    /* background-size: cover; */
-    height: 100;
+    height: 100vh;
+    position: sticky;
+    left: 0px;
 }
 /* Aside */
 .aside_cont{
@@ -140,6 +143,9 @@ a{
     border-radius: 4px;
     background-color: var(--color-4);
 }
+.search_inp:focus{
+    outline: 3px solid var(--color-8);
+}
 .add_btn{
     background-color: var(--color-1);
     color: var(--color-4);
@@ -183,7 +189,7 @@ a{
     padding: 5px;
     cursor: pointer;
 }
-.user_err{
+.loading_err{
     font-size: 20px;
     padding: 8px;
     border-radius: 4px;

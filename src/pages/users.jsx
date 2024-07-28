@@ -57,7 +57,7 @@ const Users = (props) => {
                     </tbody>
                 </table>
                 : 
-                <div className={`${style.user_err}`}>
+                <div className={`${style.loading_err}`}>
                     <h1>هیچ کاربری موجود نیست!!</h1>
                     <h1>لطفا کمی صبر کنید...</h1>
                 </div>}

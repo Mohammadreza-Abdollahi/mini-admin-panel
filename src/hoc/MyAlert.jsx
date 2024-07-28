@@ -1,6 +1,6 @@
 import Swal from "sweetalert2"
 
-const MyAlert = (MainComponent)=>{
+const MyAlert = (MyComponent)=>{
     const newComponent = (props)=>{
         const Alert = (title , text , icon , time)=>{
             Swal.fire({
@@ -26,7 +26,7 @@ const MyAlert = (MainComponent)=>{
             });
         };
         
-        return <MainComponent {...props} Alert={Alert} Confirm={Confirm}/>
+        return <MyComponent {...props} Alert={Alert} Confirm={Confirm}/>
     }
     return newComponent
 }
