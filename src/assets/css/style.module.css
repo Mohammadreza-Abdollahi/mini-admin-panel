@@ -219,19 +219,23 @@ a{
     width: 95%;
     margin: 0px auto 15px auto;
 }
-.add_user_cont .add_user_form_sec input{
+.add_user_cont .add_user_form_sec input,
+.add_user_cont .add_user_form_sec textarea{
     width: 100%;
     border: 1px solid var(--color-5);
     border-radius: 4px;
     font-size: 22px;
     padding: 5px;
     color: #404040;
+    resize: none;
 }
-.add_user_cont .add_user_form_sec input::placeholder{
+.add_user_cont .add_user_form_sec input::placeholder,
+.add_user_cont .add_user_form_sec textarea::placeholder{
     color: var(--color-9);
     font-size: 18px;
 }
-.add_user_cont .add_user_form_sec input:focus{
+.add_user_cont .add_user_form_sec input:focus,
+.add_user_cont .add_user_form_sec textarea:focus{
     outline: 3px solid var(--color-8);
 }
 .add_user_cont .add_user_form_sec label{

@@ -6,6 +6,32 @@ export const getPostsService = async (setPosts , setMainPosts)=>{
         setMainPosts(res.data);
     })
 }
+export const getPostsByIdService = async (postId , setPostData)=>{
+    await JpAxios.get(`/posts/${postId}`).then(res=>{
+        setPostData({
+            body: res.data.body,
+            title: res.data.title,
+        })
+    })
+}
+export const addPostService = async (PostData , Alert)=>{
+ await JpAxios.post(`/posts` , PostData).then(res=>{
+    if(res.status === 201){
+        Alert("موفق","پست مورد نظر با موفقیت اضافه شد","success",2);
+    }else{
+        Alert("خطا","عملیات با خطا مواجه شد","success",2);
+    }
+ })
+}
+export const updatePostService = async (postId , PostData , Alert)=>{
+    await JpAxios.put(`/posts/${postId}` , PostData).then(res=>{
+        if(res.status === 200){
+            Alert("موفق","پست مورد نظر با موفقیت ویرایش شد","success",2)
+        }else{
+            Alert("خطا","عملیات با خطا مواجه شد","success",2);
+        }
+    })
+}
 export const deletePostService = async (postId , posts , setPosts , Alert)=>{
     await JpAxios.delete(`/posts/${postId}`).then(res=>{
         if(res.status === 200){

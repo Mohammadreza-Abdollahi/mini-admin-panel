@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import style from '../assets/css/style.module.css';
 import { deletePostService, getPostsService } from '../services/PostService';
 import MyAlert from '../hoc/MyAlert';
+import { Link } from 'react-router-dom';
 const Posts = (props) => {
     const { Confirm , Alert } = props;
     const [posts , setPosts] = useState([]);
@@ -27,7 +28,7 @@ const Posts = (props) => {
                             <input className={`${style.search_inp}`} type="text" placeholder='جستجو...' onChange={(e)=>handleSearch(e)}/>
                         </div>
                         <div>
-                            <button className={`${style.add_btn}`}>افزودن</button>
+                            <button className={`${style.add_btn}`}><Link to={'/posts/add'}>افزودن</Link></button>
                         </div>
                     </div>
                     <div>
@@ -50,7 +51,7 @@ const Posts = (props) => {
                                                 <td colSpan={2}>{item.id}</td>
                                                 <td>{item.userId}</td>
                                                 <td>{item.title}</td>
-                                                <td colSpan={2}><button onClick={()=>handleDelete(item.id)} className={`${style.trash}`} title='حذف'><i class="fa-solid fa-trash"></i></button><button className={`${style.rename}`} title='ویرایش'><i class="fa-solid fa-pen-to-square"></i></button><button className={`${style.coments}`} title='کامنت ها'><i class="fa-solid fa-comments"></i></button></td>
+                                                <td colSpan={2}><button onClick={()=>handleDelete(item.id)} className={`${style.trash}`} title='حذف'><i class="fa-solid fa-trash"></i></button><Link to={`/posts/add/${item.id}`}><button className={`${style.rename}`} title='ویرایش'><i class="fa-solid fa-pen-to-square"></i></button></Link><button className={`${style.coments}`} title='کامنت ها'><i class="fa-solid fa-comments"></i></button></td>
                                             </tr>
                                         )
                                     })

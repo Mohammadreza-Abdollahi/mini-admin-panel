@@ -7,6 +7,7 @@ import Galery from './pages/galery';
 import Works from './pages/works';
 import AddUser from './components/AddUser';
 import { Route, Routes, Navigate } from 'react-router-dom';
+import AddPost from './components/AddPost';
 const Content = () => {
     const {showMenu,setShowMenu} = useContext(MainContext);
     const handleShowMenu = (e)=>{
@@ -28,6 +29,9 @@ const Content = () => {
                             <Route path=':userId'/>
                         </Route>
                         <Route path='/posts' element={<Post/>}/>
+                        <Route path='posts/add' element={<AddPost/>}>
+                            <Route path=':postId'/>
+                        </Route>
                         <Route path='/galery' element={<Galery/>}/>
                         <Route path='/works' element={<Works/>}/>
                     </Routes>                    
