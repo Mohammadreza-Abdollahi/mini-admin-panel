@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import style from '../assets/css/style.module.css';
-import { getPostsService } from '../services/PostService';
-const Posts = () => {
+import { deletePostService, getPostsService } from '../services/PostService';
+import MyAlert from '../hoc/MyAlert';
+const Posts = (props) => {
+    const { Confirm , Alert } = props;
     const [posts , setPosts] = useState([]);
     const [mainPosts , setMainPosts] = useState([]);
     useEffect(()=>{
@@ -10,7 +12,11 @@ const Posts = () => {
     const handleSearch = (e)=>{
         setPosts(mainPosts.filter(item=>item.title.toLowerCase().includes(e.target.value.toLowerCase())));
     }
-    console.log(posts);
+    const handleDelete = async (postId)=>{
+        if(await Confirm("حذف پست!","ایا از حذف این پست اطمینان دارید؟","warning","بله ، حذف شود","بازگشت")){
+            deletePostService(postId , posts , setPosts , Alert);
+        }
+    }
     return ( 
         <>
             <section className={`${style.component_size}`}>
@@ -44,7 +50,7 @@ const Posts = () => {
                                                 <td colSpan={2}>{item.id}</td>
                                                 <td>{item.userId}</td>
                                                 <td>{item.title}</td>
-                                                <td colSpan={2}><button className={`${style.trash}`}><i class="fa-solid fa-trash"></i></button><button className={`${style.rename}`}><i class="fa-solid fa-pen-to-square"></i></button></td>
+                                                <td colSpan={2}><button onClick={()=>handleDelete(item.id)} className={`${style.trash}`} title='حذف'><i class="fa-solid fa-trash"></i></button><button className={`${style.rename}`} title='ویرایش'><i class="fa-solid fa-pen-to-square"></i></button><button className={`${style.coments}`} title='کامنت ها'><i class="fa-solid fa-comments"></i></button></td>
                                             </tr>
                                         )
                                     })
@@ -65,4 +71,4 @@ const Posts = () => {
      );
 }
  
-export default Posts;
+export default MyAlert(Posts);

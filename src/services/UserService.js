@@ -48,7 +48,7 @@ export const getUsers = async (setUsers , setMainUsers)=>{
 export const deleteUser = (id , users , setUsers , Alert)=>{
     JpAxios.delete(`/users/${id}`).then(res=>{
         if(res.status === 200){
-            const newUser = users.filter(u=> u.id !== id);
+            const newUser = users.filter(item=> item.id !== id);
             setUsers(newUser);
             Alert("موفق","کاربر مورد نظر با موفقیت حذف شد!","success",2)
         }else{
