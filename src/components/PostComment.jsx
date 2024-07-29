@@ -12,23 +12,12 @@ const PostComment = (props) => {
     useEffect(()=>{
         getCommentsService(postId,setComments,setMainComments);
     },[postId])
-    const handleSearch = (e)=>{
-        setComments(mainComments.filter(item=>item.title.toLowerCase().includes(e.target.value.toLowerCase())));
-    }
-    // const handleDelete = async (postId)=>{
-    //     if(await Confirm("حذف پست!","ایا از حذف این پست اطمینان دارید؟","warning","بله ، حذف شود","بازگشت")){
-    //         deletePostService(postId , posts , setPosts , Alert);
-    //     }
-    // }
     return ( 
         <>
             <section className={`${style.component_size}`}>
                 <h2 className={`${style.heading_title}`}>{`کامنت های پست با شناسه ${postId}`}</h2>
                 <section>
                     <div className={`${style.search_sec}`}>
-                        <div>
-                            <input className={`${style.search_inp}`} type="text" placeholder='جستجو...' onChange={(e)=>handleSearch(e)}/>
-                        </div>
                         <div>
                             {/* <button className={`${style.add_btn}`}><Link to={'/posts/add'}>افزودن</Link></button> */}
                         </div>
@@ -42,7 +31,8 @@ const PostComment = (props) => {
                                     <th>#</th>
                                     <th>ایمیل</th>
                                     <th>شناسه پست</th>
-                                    <th>عملیات</th>
+                                    <th>موضوع</th>
+                                    <th>متن</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -53,7 +43,8 @@ const PostComment = (props) => {
                                                 <td>{item.id}</td>
                                                 <td>{item.email}</td>
                                                 <td>{item.postId}</td>
-                                                <td><button className={`${style.trash}`} title='حذف'><i class="fa-solid fa-trash"></i></button><Link to={`/posts/${postId}/comments/view/${item.id}`}><button className={`${style.view}`} title='مشاهده' ><i class="fa-solid fa-eye"></i></button></Link></td>
+                                                <td>{item.name}</td>
+                                                <td>{item.body}</td>
                                             </tr>
                                         )
                                     })

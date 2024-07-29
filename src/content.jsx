@@ -33,8 +33,7 @@ const Content = () => {
                         </Route>
                         <Route path='/posts' element={<Post/>}/>
                         <Route path='/posts/view/:postId' element={<ShowPost/>}/>
-                        <Route path='/posts/:postId/comments' element={<PostComment/>}/>
-                        <Route path='/posts/:postId/comments/view/:commentId' element={<ShowComment/>}/>
+                        <Route path='/posts/:postId/comments' element={<PostComment/>}/> 
                         <Route path='posts/add' element={<AddPost/>}>
                             <Route path=':postId'/>
                         </Route>

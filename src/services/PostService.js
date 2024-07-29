@@ -8,10 +8,7 @@ export const getPostsService = async (setPosts , setMainPosts)=>{
 }
 export const getPostsByIdService = async (postId , setPostData)=>{
     await JpAxios.get(`/posts/${postId}`).then(res=>{
-        setPostData({
-            body: res.data.body,
-            title: res.data.title,
-        })
+        setPostData(res.data)
     })
 }
 export const addPostService = async (PostData , Alert)=>{

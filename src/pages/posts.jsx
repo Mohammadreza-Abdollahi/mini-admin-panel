@@ -10,6 +10,7 @@ const Posts = (props) => {
     useEffect(()=>{
         getPostsService(setPosts,setMainPosts);
     },[])
+    console.log(posts);
     const handleSearch = (e)=>{
         setPosts(mainPosts.filter(item=>item.title.toLowerCase().includes(e.target.value.toLowerCase())));
     }
