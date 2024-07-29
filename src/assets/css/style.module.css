@@ -196,6 +196,13 @@ a{
     padding: 5px;
     cursor: pointer;
 }
+.user_table .view{
+    color: #1d4ed8;
+    font-size: 20px;
+    margin: 0px 8px;
+    padding: 5px;
+    cursor: pointer;
+}
 .loading_err{
     font-size: 20px;
     padding: 8px;

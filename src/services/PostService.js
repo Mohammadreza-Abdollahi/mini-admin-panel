@@ -43,3 +43,11 @@ export const deletePostService = async (postId , posts , setPosts , Alert)=>{
         }
     })
 }
+// Comments
+export const getCommentsService = async (postId , setComments , setMainComments)=>{
+    await JpAxios.get(`/posts/${postId}/comments`).then(res=>{
+        console.log(res.data);
+        setComments(res.data);
+        setMainComments(res.data);
+    })
+}

@@ -51,7 +51,8 @@ const Posts = (props) => {
                                                 <td colSpan={2}>{item.id}</td>
                                                 <td>{item.userId}</td>
                                                 <td>{item.title}</td>
-                                                <td colSpan={2}><button onClick={()=>handleDelete(item.id)} className={`${style.trash}`} title='حذف'><i class="fa-solid fa-trash"></i></button><Link to={`/posts/add/${item.id}`}><button className={`${style.rename}`} title='ویرایش'><i class="fa-solid fa-pen-to-square"></i></button></Link><button className={`${style.coments}`} title='کامنت ها'><i class="fa-solid fa-comments"></i></button></td>
+                                                {/* <td>{item.body}</td> */}
+                                                <td colSpan={2}><button onClick={()=>handleDelete(item.id)} className={`${style.trash}`} title='حذف'><i class="fa-solid fa-trash"></i></button><Link to={`/posts/add/${item.id}`}><button className={`${style.rename}`} title='ویرایش'><i class="fa-solid fa-pen-to-square"></i></button></Link><Link to={`/posts/${item.id}/comments`}><button className={`${style.coments}`} title='کامنت ها'><i class="fa-solid fa-comments"></i></button></Link><Link to={`/posts/view/${item.id}`}><button className={`${style.view}`} title='مشاهده' ><i class="fa-solid fa-eye"></i></button></Link></td>
                                             </tr>
                                         )
                                     })

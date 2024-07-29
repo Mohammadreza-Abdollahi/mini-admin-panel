@@ -8,6 +8,9 @@ import Works from './pages/works';
 import AddUser from './components/AddUser';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import AddPost from './components/AddPost';
+import PostComment from './components/PostComment';
+import ShowComment from './components/ShowComment';
+import ShowPost from './components/ShowPost';
 const Content = () => {
     const {showMenu,setShowMenu} = useContext(MainContext);
     const handleShowMenu = (e)=>{
@@ -29,6 +32,9 @@ const Content = () => {
                             <Route path=':userId'/>
                         </Route>
                         <Route path='/posts' element={<Post/>}/>
+                        <Route path='/posts/view/:postId' element={<ShowPost/>}/>
+                        <Route path='/posts/:postId/comments' element={<PostComment/>}/>
+                        <Route path='/posts/:postId/comments/view/:commentId' element={<ShowComment/>}/>
                         <Route path='posts/add' element={<AddPost/>}>
                             <Route path=':postId'/>
                         </Route>
