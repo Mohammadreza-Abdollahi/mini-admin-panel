@@ -45,6 +45,11 @@ export const getUsers = async (setUsers , setMainUsers)=>{
         setMainUsers(res.data)
     })
 }
+export const getUsersSingle = async (setUsers)=>{
+    await JpAxios.get('/users').then(res=>{
+        return res.data;
+    })
+}
 export const deleteUser = (id , users , setUsers , Alert)=>{
     JpAxios.delete(`/users/${id}`).then(res=>{
         if(res.status === 200){

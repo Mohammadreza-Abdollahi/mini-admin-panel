@@ -227,7 +227,8 @@ a{
     margin: 0px auto 15px auto;
 }
 .add_user_cont .add_user_form_sec input,
-.add_user_cont .add_user_form_sec textarea{
+.add_user_cont .add_user_form_sec textarea,
+.add_user_cont .add_user_form_sec select{
     width: 100%;
     border: 1px solid var(--color-5);
     border-radius: 4px;
@@ -237,12 +238,14 @@ a{
     resize: none;
 }
 .add_user_cont .add_user_form_sec input::placeholder,
-.add_user_cont .add_user_form_sec textarea::placeholder{
+.add_user_cont .add_user_form_sec textarea::placeholder,
+.add_user_cont .add_user_form_sec select::placeholder{
     color: var(--color-9);
     font-size: 18px;
 }
 .add_user_cont .add_user_form_sec input:focus,
-.add_user_cont .add_user_form_sec textarea:focus{
+.add_user_cont .add_user_form_sec textarea:focus,
+.add_user_cont .add_user_form_sec select:focus{
     outline: 3px solid var(--color-8);
 }
 .add_user_cont .add_user_form_sec label{
@@ -319,6 +322,15 @@ a{
 }
 .show_table tr:hover{
     background-color: #d3d3d37c;
+}
+.my_btn{
+    background-color: var(--color-3);
+    color: var(--color-4);
+    margin: 0px 30px;
+    padding: 5px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
 }
 /* Responsive */
 @media (max-width : 1300px) {

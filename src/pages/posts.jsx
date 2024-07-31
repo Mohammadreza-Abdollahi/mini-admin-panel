@@ -39,7 +39,7 @@ const Posts = (props) => {
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th colSpan={2}>نام کاربر</th>
+                                    <th colSpan={2}>شناسه کاربر</th>
                                     <th>موضوع</th>
                                     <th colSpan={3}>عملیات</th>
                                 </tr>
