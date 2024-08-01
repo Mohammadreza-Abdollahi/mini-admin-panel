@@ -332,6 +332,21 @@ a{
     cursor: pointer;
     font-size: 18px;
 }
+/* Gallery */
+.gallery_cont .gallery_item_cont{
+    display: inline-block;
+    margin: 10px;
+    width: 30%;
+    height: 460px;
+    overflow: hidden;
+    border-radius: 8px;
+    text-align: center;
+    vertical-align: middle;
+}
+.gallery_cont .gallery_item_cont img{
+    width: 100%;
+    height: 100%;
+}
 /* Responsive */
 @media (max-width : 1300px) {
     .aside_nav_li{
