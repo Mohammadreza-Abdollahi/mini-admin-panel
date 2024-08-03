@@ -1,11 +1,12 @@
 import { useEffect, useReducer } from 'react';
 import style from '../assets/css/style.module.css';
 import { JpAxios } from '../axios/JpAxios';
+import useTitle from '../hooks/useTitle';
 
 const init = {
   photos: [],
   filteredPhotos: [],
-  albumId: 2,
+  albumId: 1,
   albums: []
 }
 
@@ -29,13 +30,12 @@ const galleryReducer = (state, action) => {
     case "getPhotos":
       return {
         ...state,
-        photos: action.payload,
-        filteredPhotos: state.photos.filter(item=>item.albumId === state.albumId)
+        photos: action.payload
       }
     case "filterPhotos":
       return {
         ...state,
-        filteredPhotos: state.photos.filter(item => item.albumId === action.payload)
+        filteredPhotos: state.photos.filter(item => item.albumId === state.albumId)
       }
     default:
       return state
@@ -44,7 +44,7 @@ const galleryReducer = (state, action) => {
 
 const Galery = () => {
   const [data, dispatch] = useReducer(galleryReducer, init);
-
+  useTitle('گالری')
   useEffect(() => {
     JpAxios.get('/photos').then(res => {
       dispatch({
@@ -62,11 +62,10 @@ const Galery = () => {
 
   useEffect(() => {
     dispatch({
-      type: 'filterPhotos',
-      payload : data.albumId
+      type: 'filterPhotos'
     })
-  }, [data.albumId])
-  console.log(data.filteredPhotos);
+  }, [data.albumId, data.photos])
+
   return (
     <>
       <section className={`${style.component_size}`}>

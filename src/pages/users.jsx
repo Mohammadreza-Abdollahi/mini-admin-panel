@@ -3,10 +3,12 @@ import style from '../assets/css/style.module.css';
 import { useEffect, useState } from 'react';
 import { deleteUser, getUsers } from '../services/UserService';
 import MyAlert from '../hoc/MyAlert';
+import useTitle from '../hooks/useTitle';
 const Users = (props) => {
     const { Alert , Confirm } = props;
     const [users,setUsers] = useState([]);
     const [mainUsers,setMainUsers] = useState([]);
+    useTitle('کاربران')
     useEffect(()=>{
         getUsers(setUsers , setMainUsers)
     },[]);

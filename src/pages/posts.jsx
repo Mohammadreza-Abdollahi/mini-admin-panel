@@ -3,10 +3,12 @@ import style from '../assets/css/style.module.css';
 import { deletePostService, getPostsService } from '../services/PostService';
 import MyAlert from '../hoc/MyAlert';
 import { Link } from 'react-router-dom';
+import useTitle from '../hooks/useTitle';
 const Posts = (props) => {
     const { Confirm , Alert } = props;
     const [posts , setPosts] = useState([]);
     const [mainPosts , setMainPosts] = useState([]);
+    useTitle('پست ها')
     useEffect(()=>{
         getPostsService(setPosts,setMainPosts);
     },[])

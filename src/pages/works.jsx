@@ -1,5 +1,6 @@
 import { useReducer } from 'react';
 import style from '../assets/css/style.module.css';
+import useTitle from '../hooks/useTitle';
 const myReducer = (state , action)=>{
     // if(action === 'increament') return state + 1;
     // if(action === 'decreament') return state - 1;
@@ -17,6 +18,7 @@ const myReducer = (state , action)=>{
 }
 const Works = () => {
     const [count , dispatch] = useReducer(myReducer , 0)
+    useTitle('کارها')
     return ( 
         <>
             <section className={`${style.component_size}`}>
