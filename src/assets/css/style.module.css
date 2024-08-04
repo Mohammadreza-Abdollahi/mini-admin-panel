@@ -175,28 +175,28 @@ a{
 .user_table tbody td{
     padding: 4px 12px;
 }
-.user_table .trash{
+.user_table .danger{
     color: #b91c1c;
     font-size: 20px;
     margin: 0px 5px;
     padding: 5px;
     cursor: pointer;
 }
-.user_table .rename{
+.user_table .warning{
     color: #a16207;
     font-size: 20px;
     margin: 0px 8px;
     padding: 5px;
     cursor: pointer;
 }
-.user_table .coments{
+.user_table .success{
     color: #15803d;
     font-size: 20px;
     margin: 0px 8px;
     padding: 5px;
     cursor: pointer;
 }
-.user_table .view{
+.user_table .info{
     color: #1d4ed8;
     font-size: 20px;
     margin: 0px 8px;
@@ -346,6 +346,13 @@ a{
 .gallery_cont .gallery_item_cont img{
     width: 100%;
     height: 100%;
+}
+/* Works */
+.completed{
+    background-color: #15803c25 !important;
+}
+.not_completed{
+    background-color: #b91c1c25 !important;
 }
 /* Responsive */
 @media (max-width : 1300px) {

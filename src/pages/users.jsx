@@ -35,34 +35,34 @@ const Users = (props) => {
                 <div>
                     {users.length !== 0 ? 
                     <table className={`${style.user_table}`}>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>نام</th>
-                            <th>نام کاربری</th>
-                            <th colSpan={3}>ایمیل</th>
-                            <th colSpan={2}>عملیات</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {users.map(item=>{
-                            return(
-                            <tr key={item.id}>
-                                <td>{item.id}</td>
-                                <td>{item.name}</td>
-                                <td>{item.username}</td>
-                                <td colSpan={3}>{item.email}</td>
-                                <td colSpan={2}><button onClick={()=>handleDelete(item.id)} className={`${style.trash}`} title='حذف'><i class="fa-solid fa-trash"></i></button><Link to={`/user/add/${item.id}`}><button className={`${style.rename}`} title='ویرایش'><i class="fa-solid fa-pen-to-square"></i></button></Link></td>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>نام</th>
+                                <th>نام کاربری</th>
+                                <th colSpan={3}>ایمیل</th>
+                                <th colSpan={2}>عملیات</th>
                             </tr>
-                            )
-                        })}
-                    </tbody>
-                </table>
-                : 
-                <div className={`${style.loading_err}`}>
-                    <h1>هیچ کاربری موجود نیست!!</h1>
-                    <h1>لطفا کمی صبر کنید...</h1>
-                </div>}
+                        </thead>
+                        <tbody>
+                            {users.map(item=>{
+                                return(
+                                <tr key={item.id}>
+                                    <td>{item.id}</td>
+                                    <td>{item.name}</td>
+                                    <td>{item.username}</td>
+                                    <td colSpan={3}>{item.email}</td>
+                                    <td colSpan={2}><button onClick={()=>handleDelete(item.id)} className={`${style.danger}`} title='حذف'><i class="fa-solid fa-trash"></i></button><Link to={`/user/add/${item.id}`}><button className={`${style.warning}`} title='ویرایش'><i class="fa-solid fa-pen-to-square"></i></button></Link></td>
+                                </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                    : 
+                    <div className={`${style.loading_err}`}>
+                        <h1>هیچ کاربری موجود نیست!!</h1>
+                        <h1>لطفا کمی صبر کنید...</h1>
+                    </div>}
                 </div>
             </section>
         </>
